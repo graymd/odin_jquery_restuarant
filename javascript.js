@@ -3,18 +3,17 @@ $('document').ready(function(){
   // appendData();
   $('#content').append(getHeadline());
   $('#content').append(getCopy());
-  $('#content').append(getImage());
+  // $('#content').append(getImage());
   // $('#content').append(getTabSection());
+  $('a').click(function(){
+    console.log('clicked', $(this).text());
+    setSelectedTab($(this));
+  })
 });
-
-
-// var dataToAppend = function dataToAppend(){
-// }
-
 
 var getImage = function getImage(){
   return "<img src='https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13599757_10102164151784327_1578958758157309695_n.jpg?oh=64f50d282d12888181e27ebd7d3a1d85&oe=5830F01F'>"
- 
+
 }
 
 var getHeadline = function getHeadline(){
@@ -27,4 +26,13 @@ var getCopy = function getCopy(){
 
 var getTabSection = function getTabSection(){
   return "kittek"
+}
+
+var setSelectedTab = function setSelectedTab(userInputTab){
+  removeSelectedId();
+  userInputTab.attr('id', 'selected');
+}
+
+var removeSelectedId = function removeSelectedId(){
+  $('a').removeAttr("id", "selected")
 }
